@@ -1,0 +1,53 @@
+.formContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.formGroup label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup .react-select__control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.formGroup textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.formGroup .react-select__control {
+    height: 40px;
+}
+
+.formGroup button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.formGroup button[type="submit"]:hover {
+    background-color: #45a049;
+}

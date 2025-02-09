@@ -1,0 +1,79 @@
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content h2 {
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.guitars, .drums, .pianos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.guitar, .drum, .piano {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+    height: 300px;
+    justify-content: space-between;
+}
+
+.guitar img, .drum img, .piano img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.guitar h4, .drum h4, .piano h4 {
+    margin: 5px 0;
+}
+
+.guitar h4:last-child, .drum h4:last-child, .piano h4:last-child {
+    font-weight: bold;
+    color: #555;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.guitar:hover, .drum:hover, .piano:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.guitar:hover img, .drum:hover img, .piano:hover img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+
+.guitar:hover h4, .drum:hover h4, .piano:hover h4 {
+    color: #713509;
+    transition: color 0.3s ease;
+}

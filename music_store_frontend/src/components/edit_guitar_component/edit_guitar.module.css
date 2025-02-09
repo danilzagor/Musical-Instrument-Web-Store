@@ -1,0 +1,103 @@
+
+.editContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.formContainer {
+    background: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+    color: #e74c3c;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input[type="text"],
+.input[type="number"],
+.textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.input[type="file"] {
+    margin-top: 5px;
+}
+
+.button[type="submit"] {
+    width: 100%;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.button[type="submit"]:hover {
+    background: #2980b9;
+}
+
+
+
+@media (max-width: 768px) {
+    .formContainer {
+        padding: 15px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+        font-size: 12px;
+    }
+
+    button[type="submit"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

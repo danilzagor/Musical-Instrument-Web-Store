@@ -1,0 +1,159 @@
+{
+  "cart": {
+    "removeAllButton": "Прибрати всі товари з кошику",
+    "removeItemButton": "Прибрати з кошику",
+    "emptyCart": "Кошик пустий"
+  },
+  "navbar": {
+    "guitars": "Гітари",
+    "drums": "Барабани",
+    "pianos": "Піаніно",
+    "profile": "Профіль",
+    "cart": "Кошик"
+  },
+  "editCategory": {
+    "title": "Редагувати категорію",
+    "chooseCategory": "Виберіть категорію",
+    "selectPlaceholder": "Виберіть категорію",
+    "selectExisting": "Виберіть {{category}}",
+    "selectPlaceholderExisting": "Виберіть існуючу {{category}}",
+    "enterNewName": "Введіть нову назву",
+    "enterNewNamePlaceholder": "Введіть нову назву",
+    "editButton": "Редагувати"
+  },
+  "filters": {
+    "brand": "Бренд",
+    "model": "Тип",
+    "color": "Колір"
+  },
+  "buttons": {
+    "editCategories": "Редагувати категорії",
+    "addGuitar": "Додати гітару",
+    "addDrum": "Додати барабани",
+    "addPiano": "Додати піаніно"
+  },
+  "search": {
+    "placeholderGuitar": "Пошук гітар",
+    "placeholderDrum": "Пошук барабанів",
+    "placeholderPiano": "Пошук піанін"
+  },
+  "labels": {
+    "limit": "Ліміт"
+  },
+  "categories": {
+    "brands": "Бренд",
+    "colors": "Колір",
+    "types": "Тип",
+    "shell_materials": "Матеріал оболонки"
+  },
+  "form": {
+    "instrument_name": "Назва інструменту",
+    "price": "Ціна",
+    "description": "Опис",
+    "brand": "Бренд",
+    "color": "Колір",
+    "scale": "Скаля",
+    "type": "Тип",
+    "image": "Зображення",
+    "update_button": "Оновити",
+    "update_button_guitar": "Оновити гітару",
+    "update_button_drum": "Оновити барабан",
+    "number_of_pedals": "Кількість педалей",
+    "tomtom_number": "Кількість томтомів",
+    "floor_tom_number": "Кількість підлогових томів",
+    "shell_material": "Матеріал обробки",
+    "update_button_piano": "Оновити Піаніно"
+  },
+  "opinions": {
+    "title": "Відгуки",
+    "deleteReview": "Видалити відгук",
+    "editReview": "Редагувати відгук",
+    "yourOpinion": "Ваш відгук",
+    "score": "Оцінка",
+    "cancel": "Скасувати",
+    "createReview": "Створити відгук",
+    "titleLabel": "Заголовок",
+    "descriptionLabel": "Опис",
+    "scoreLabel": "Оцінка",
+    "editReviewButton": "Редагувати відгук",
+    "postReviewButton": "Опублікувати відгук",
+    "otherOpinions": "Інші відгуки",
+    "noReviews": "Ще немає відгуків"
+  },
+  "instrumentForm": {
+    "instrumentName": "Назва інструменту",
+    "price": "Ціна",
+    "description": "Опис",
+    "brand": "Бренд",
+    "scale": "Скаля",
+    "color": "Колір",
+    "type": "Тип",
+    "tomtomNumber": "Кількість томтомів",
+    "floorTomNumber": "Кількість підлогових томтомів",
+    "shellMaterial": "Матеріал корпусу",
+    "image": "Зображення",
+    "selectOrTypeBrand": "Виберіть або введіть бренд",
+    "selectOrTypeColor": "Виберіть або введіть колір",
+    "selectOrTypeType": "Виберіть або введіть тип",
+    "numberOfPedals": "Кількість педалей",
+    "addDrum": "Додати барабан",
+    "addGuitar": "Додати гітару",
+    "addPiano": "Додати піаніно"
+  },
+  "instruments": {
+    "interest": "Інструменти, які можуть вас зацікавити"
+  },
+  "types": {
+    "guitars": "Гітари",
+    "drums": "Барабани",
+    "pianos": "Піаніно"
+  },
+  "loginForm": {
+    "login": "Увійти",
+    "loginLabel": "Логін",
+    "passwordLabel": "Пароль",
+    "loginButton": "Увійти",
+    "orRegister": "Або зареєструйтесь",
+    "registerButton": "Зареєструватись"
+  },
+  "registerForm": {
+    "register": "Зареєструватися",
+    "loginLabel": "Логін",
+    "passwordLabel": "Пароль",
+    "nameLabel": "Ім'я",
+    "surnameLabel": "Прізвище",
+    "emailLabel": "Електронна пошта",
+    "registerButton": "Зареєструватися",
+    "orLogin": "Або увійти",
+    "loginButton": "Перейти до входу"
+  },
+  "profile": {
+    "userInformation": "Інформація користувача",
+    "editProfile": "Редагувати дані профілю",
+    "cancel": "Скасувати",
+    "loading": "Завантаження...",
+    "name": "Ім'я",
+    "surname": "Прізвище",
+    "email": "Електронна пошта",
+    "phone": "Телефон",
+    "saveChanges": "Зберегти зміни",
+    "logout" : "Вийти"
+  },
+  "product": {
+    "addToCart": "Додати до кошика",
+    "goToCart": "Перейти до кошика",
+    "deleteProduct": "Видалити цей продукт",
+    "editProduct": "Редагувати цей продукт",
+    "description": "Опис",
+    "brand": "Бренд",
+    "color": "Колір",
+    "shellMaterial": "Матеріал корпусу",
+    "tomtoms": "Кількість том-томів",
+    "floorTomtoms": "Кількість підлогових том-томів",
+    "instrumentDescription": "Опис інструменту",
+    "type": "Тип",
+    "scale": "Скаля",
+    "pedalCount": "Кількість педалей"
+  }
+
+}

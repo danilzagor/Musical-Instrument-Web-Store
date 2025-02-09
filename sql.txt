@@ -1,0 +1,272 @@
+CREATE TABLE brand (
+                       ID INT AUTO_INCREMENT PRIMARY KEY,
+                       Name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE color (
+                       id INT AUTO_INCREMENT PRIMARY KEY,
+                       name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE musical_instrument (
+                                    id INT AUTO_INCREMENT PRIMARY KEY,
+                                    name VARCHAR(50) NOT NULL,
+                                    description VARCHAR(200) NOT NULL,
+                                    price DECIMAL(10, 2) NOT NULL,
+                                    Color_ID INT NOT NULL,
+                                    Brand_ID INT NOT NULL,
+                                    CONSTRAINT Musical_Instrument_Brand
+                                        FOREIGN KEY (Brand_ID) REFERENCES brand (ID) ON DELETE CASCADE,
+                                    CONSTRAINT Musical_Instrument_Color
+                                        FOREIGN KEY (Color_ID) REFERENCES color (id) ON DELETE CASCADE
+);
+
+CREATE TABLE instrument_images (
+                                   id INT AUTO_INCREMENT PRIMARY KEY,
+                                   musical_instrument_id INT NOT NULL,
+                                   image_url VARCHAR(255) NOT NULL,
+                                   is_primary TINYINT(1) DEFAULT 0 NULL,
+                                   uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+                                   CONSTRAINT instrument_images_ibfk_1
+                                       FOREIGN KEY (musical_instrument_id) REFERENCES musical_instrument (id) ON DELETE CASCADE
+);
+
+CREATE INDEX musical_instrument_id ON instrument_images (musical_instrument_id);
+
+CREATE TABLE piano (
+                       id INT AUTO_INCREMENT PRIMARY KEY,
+                       scale INT NOT NULL,
+                       Pedals INT NOT NULL,
+                       musical_instrument_id INT NOT NULL,
+                       CONSTRAINT Piano_Musical_Instrument
+                           FOREIGN KEY (musical_instrument_id) REFERENCES musical_instrument (id) ON DELETE CASCADE
+);
+
+CREATE TABLE shell_material (
+                                id INT AUTO_INCREMENT PRIMARY KEY,
+                                name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE drums (
+                       id INT AUTO_INCREMENT PRIMARY KEY,
+                       tomtom_number INT NOT NULL,
+                       floor_tom_number INT NOT NULL,
+                       musical_instrument_id INT NOT NULL,
+                       shell_material_id INT NOT NULL,
+                       CONSTRAINT Drums_Musical_Instrument
+                           FOREIGN KEY (musical_instrument_id) REFERENCES musical_instrument (id) ON DELETE CASCADE,
+                       CONSTRAINT Drums_Shell_Material
+                           FOREIGN KEY (shell_material_id) REFERENCES shell_material (id) ON DELETE CASCADE
+);
+
+CREATE TABLE type (
+                      id INT AUTO_INCREMENT PRIMARY KEY,
+                      name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE guitar (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        scale INT NOT NULL,
+                        type_id INT NOT NULL,
+                        musical_instrument_id INT NOT NULL,
+                        CONSTRAINT Guitar_Musical_Instrument
+                            FOREIGN KEY (musical_instrument_id) REFERENCES musical_instrument (id) ON DELETE CASCADE,
+                        CONSTRAINT Guitar_Type
+                            FOREIGN KEY (type_id) REFERENCES type (id) ON DELETE CASCADE
+);
+
+CREATE TABLE user (
+                      id INT AUTO_INCREMENT PRIMARY KEY,
+                      name VARCHAR(50) NOT NULL,
+                      surname VARCHAR(50) NOT NULL,
+                      phone_number VARCHAR(15) NULL,
+                      email VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE cart (
+                      User_id INT NOT NULL,
+                      Musical_Instrument_id INT NOT NULL,
+                      PRIMARY KEY (User_id, Musical_Instrument_id),
+                      CONSTRAINT Cart_Musical_Instrument
+                          FOREIGN KEY (Musical_Instrument_id) REFERENCES musical_instrument (id) ON DELETE CASCADE,
+                      CONSTRAINT Cart_User
+                          FOREIGN KEY (User_id) REFERENCES user (id) ON DELETE CASCADE
+);
+
+CREATE TABLE opinion (
+                         user_id INT NOT NULL,
+                         musical_instrument_id INT NOT NULL,
+                         title VARCHAR(50) NOT NULL,
+                         content VARCHAR(250) NOT NULL,
+                         score INT NOT NULL,
+                         PRIMARY KEY (user_id, musical_instrument_id),
+                         CONSTRAINT Comment_Musical_Instrument
+                             FOREIGN KEY (musical_instrument_id) REFERENCES musical_instrument (id) ON DELETE CASCADE,
+                         CONSTRAINT Comment_User
+                             FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE
+);
+
+CREATE TABLE users_credentials (
+                                   user_id INT NOT NULL PRIMARY KEY,
+                                   login VARCHAR(20) NOT NULL,
+                                   password VARCHAR(200) NOT NULL,
+                                   role VARCHAR(20) NOT NULL,
+                                   CONSTRAINT Users_Credentials_User
+                                       FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE
+);
+
+
+INSERT INTO user (name, surname, phone_number, email) VALUES
+                                                          ('John', 'Doe', '1234567890', 'john.doe@example.com'),
+                                                          ('Jane', 'Smith', '0987654321', 'jane.smith@example.com'),
+                                                          ('Michael', 'Brown', '1112223333', 'michael.brown@example.com'),
+                                                          ('Emily', 'Davis', '4445556666', 'emily.davis@example.com'),
+                                                          ('David', 'Wilson', '7778889999', 'david.wilson@example.com'),
+                                                          ('asd', 'afg', '332445345', 'etegfd@asd'),
+                                                          ('555', '555', '12353445', '555@gmail.com');
+
+-- Insert brands
+INSERT INTO brand (Name) VALUES
+                             ('Fender'),
+                             ('Gibson'),
+                             ('PRS'),
+                             ('Ibanez'),
+                             ('Jackson');
+
+-- Insert colors
+INSERT INTO color (Name) VALUES
+                             ('Sunburst'),
+                             ('Gold Top'),
+                             ('Blue Fade'),
+                             ('Black'),
+                             ('Cherry Red');
+
+-- Insert types
+INSERT INTO type (Name) VALUES
+                            ('Stratocaster'),
+                            ('Les Paul'),
+                            ('Custom'),
+                            ('Superstrat'),
+                            ('Semi-Hollow');
+
+-- Insert musical instruments
+INSERT INTO musical_instrument (Name, Description, Price, Color_ID, Brand_ID) VALUES
+                                                                                  ('Fender American Stratocaster', 'A classic Strat with iconic tones.', 1799.99, 1, 1),
+                                                                                  ('Gibson Les Paul Standard', 'A vintage-style Les Paul with premium tonewoods.', 2499.99, 2, 2),
+                                                                                  ('PRS SE Custom 24', 'A versatile guitar with a stunning maple top.', 849.99, 3, 3),
+                                                                                  ('Ibanez RG550', 'A shredder’s dream with a fast neck.', 1099.99, 4, 4),
+                                                                                  ('Jackson Soloist SLX', 'A sleek guitar for metal enthusiasts.', 749.99, 4, 5),
+                                                                                  ('Fender Telecaster', 'A reliable and affordable Tele.', 849.99, 5, 1),
+                                                                                  ('Gibson SG Standard', 'A lightweight rock icon.', 1599.99, 5, 2),
+                                                                                  ('Gretsch Streamliner', 'A semi-hollow guitar with warm tones.', 599.99, 1, 5),
+                                                                                  ('Epiphone Casino', 'A fully hollow guitar with bright tones.', 699.99, 1, 2),
+                                                                                  ('ESP LTD EC-1000', 'A high-performance guitar for heavy music.', 1099.99, 4, 5);
+
+-- Insert guitars
+INSERT INTO guitar (Scale, Type_ID, Musical_Instrument_ID) VALUES
+                                                               (25, 1, 1),
+                                                               (24, 2, 2),
+                                                               (25, 3, 3),
+                                                               (25, 4, 4),
+                                                               (25, 4, 5),
+                                                               (25, 1, 6),
+                                                               (24, 2, 7),
+                                                               (24, 5, 8),
+                                                               (24, 5, 9),
+                                                               (24, 2, 10);
+
+-- Insert opinions
+INSERT INTO opinion (User_ID, Musical_Instrument_ID, Title, Content, Score) VALUES
+                                                                                (1, 1, 'Iconic Sound', 'The Stratocaster delivers legendary tones!', 5),
+                                                                                (2, 2, 'Warm and Powerful', 'The Les Paul is perfect for classic rock.', 5),
+                                                                                (3, 3, 'Incredible Value', 'PRS SE Custom 24 is versatile and affordable.', 4),
+                                                                                (4, 4, 'Great for Shredding', 'Ibanez RG550 has an amazing neck for fast playing.', 5),
+                                                                                (5, 5, 'Metal Monster', 'The Jackson Soloist SLX is perfect for metal.', 4),
+                                                                                (6, 6, 'Reliable and Classic', 'Fender Telecaster is great for all genres.', 5),
+                                                                                (7, 7, 'Lightweight Rocker', 'Gibson SG Standard feels light and sounds heavy.', 5),
+                                                                                (1, 8, 'Warm Vintage Tone', 'The Gretsch Streamliner is perfect for blues and jazz.', 4),
+                                                                                (2, 9, 'Bright and Punchy', 'Epiphone Casino is ideal for clean tones.', 4),
+                                                                                (3, 10, 'Heavy and Precise', 'ESP LTD EC-1000 is great for heavy riffs.', 5);
+
+INSERT INTO shell_material (Name) VALUES
+                                      ('Maple'),
+                                      ('Birch'),
+                                      ('Oak'),
+                                      ('Mahogany'),
+                                      ('Poplar');
+
+INSERT INTO musical_instrument (Name, Description, Price, Color_ID, Brand_ID) VALUES
+                                                                                  ('Tama Imperialstar', 'A versatile drum kit suitable for beginners and professionals.', 699.99, 1, 4),
+                                                                                  ('Pearl Export', 'The best-selling drum kit in the world.', 799.99, 2, 5),
+                                                                                  ('DW Collector’s Series', 'A high-end drum kit with exceptional build quality.', 4999.99, 3, 1),
+                                                                                  ('Yamaha Stage Custom', 'A reliable drum kit with excellent sound.', 999.99, 4, 3),
+                                                                                  ('Ludwig Accent Drive', 'An affordable drum set for entry-level drummers.', 599.99, 5, 2),
+                                                                                  ('Gretsch Catalina Maple', 'A professional-grade drum kit with maple shells.', 1149.99, 1, 3),
+                                                                                  ('Mapex Mars', 'A versatile kit with a focused sound.', 849.99, 3, 4),
+                                                                                  ('Sonor AQ2', 'A compact drum kit with premium features.', 1249.99, 2, 5),
+                                                                                  ('PDP Concept Series', 'A well-rounded kit for intermediate drummers.', 1099.99, 4, 1),
+                                                                                  ('Pearl Roadshow', 'A compact drum set for beginners.', 499.99, 5, 5);
+
+-- Insert drums
+INSERT INTO drums (TomTom_Number, Floor_Tom_Number, Musical_Instrument_ID, Shell_Material_ID) VALUES
+                                                                                                  (3, 1, 11, 1),
+                                                                                                  (2, 2, 12, 2),
+                                                                                                  (4, 2, 13, 3),
+                                                                                                  (3, 1, 14, 1),
+                                                                                                  (2, 1, 15, 5),
+                                                                                                  (3, 2, 16, 1),
+                                                                                                  (3, 1, 17, 4),
+                                                                                                  (4, 1, 18, 3),
+                                                                                                  (3, 2, 19, 2),
+                                                                                                  (2, 1, 20, 5);
+
+INSERT INTO opinion (User_ID, Musical_Instrument_ID, Title, Content, Score) VALUES
+                                                                                (1, 11, 'Versatile Kit', 'The Tama Imperialstar is great for all styles.', 5),
+                                                                                (2, 12, 'Best-Selling for a Reason', 'The Pearl Export lives up to its reputation.', 5),
+                                                                                (3, 13, 'Exceptional Quality', 'The DW Collector’s Series is worth every penny.', 5),
+                                                                                (4, 14, 'Reliable and Affordable', 'Yamaha Stage Custom offers great value.', 4),
+                                                                                (5, 15, 'Perfect for Beginners', 'Ludwig Accent Drive is ideal for starting out.', 4),
+                                                                                (6, 16, 'Professional-Grade Kit', 'The Gretsch Catalina Maple sounds amazing.', 5),
+                                                                                (7, 17, 'Focused Sound', 'Mapex Mars delivers a powerful tone.', 5),
+                                                                                (1, 18, 'Compact and Premium', 'Sonor AQ2 is great for small spaces.', 4),
+                                                                                (2, 19, 'Well-Rounded Kit', 'PDP Concept Series is perfect for intermediates.', 4),
+                                                                                (3, 20, 'Great Starter Kit', 'The Pearl Roadshow is perfect for beginners.', 4);
+
+-- Insert musical instruments for pianos
+INSERT INTO musical_instrument (Name, Description, Price, Color_ID, Brand_ID) VALUES
+                                                                                  ('Yamaha C7X', 'A concert grand piano with exceptional sound and design.', 68999.99, 1, 3),
+                                                                                  ('Steinway Model D', 'The gold standard for concert grand pianos.', 99999.99, 2, 2),
+                                                                                  ('Kawai GX-2', 'A grand piano with a beautiful tone and responsive action.', 59999.99, 3, 4),
+                                                                                  ('Bosendorfer 280VC', 'A premium grand piano known for its unique sound.', 120000.00, 4, 5),
+                                                                                  ('Roland FP-90X', 'A digital piano with grand piano touch and tone.', 2199.99, 5, 1),
+                                                                                  ('Casio Privia PX-S7000', 'A sleek and portable digital piano.', 1799.99, 1, 4),
+                                                                                  ('Nord Grand', 'A high-quality digital piano with realistic action.', 3499.99, 2, 3),
+                                                                                  ('Korg Grandstage', 'A versatile stage piano for live performances.', 2599.99, 4, 5),
+                                                                                  ('Yamaha U1', 'An upright piano with superb tonal performance.', 8399.99, 3, 3),
+                                                                                  ('Roland RD-2000', 'A stage piano with advanced features for professionals.', 2999.99, 5, 1);
+
+-- Insert pianos
+INSERT INTO piano (Scale, Pedals, Musical_Instrument_ID) VALUES
+                                                             (88, 3, 21),
+                                                             (88, 3, 22),
+                                                             (88, 3, 23),
+                                                             (88, 3, 24),
+                                                             (88, 3, 25),
+                                                             (88, 2, 26),
+                                                             (88, 3, 27),
+                                                             (88, 3, 28),
+                                                             (88, 3, 29),
+                                                             (88, 2, 30);
+
+-- Insert opinions for pianos
+INSERT INTO opinion (User_ID, Musical_Instrument_ID, Title, Content, Score) VALUES
+                                                                                (1, 21, 'Exceptional Sound', 'The Yamaha C7X delivers unmatched tonal clarity.', 5),
+                                                                                (2, 22, 'Gold Standard', 'Steinway Model D is a masterpiece for concert use.', 5),
+                                                                                (3, 23, 'Beautiful Tone', 'The Kawai GX-2 is perfect for both performance and practice.', 4),
+                                                                                (4, 24, 'Premium Quality', 'Bosendorfer 280VC has a truly unique and resonant sound.', 5),
+                                                                                (5, 25, 'Great Digital Option', 'Roland FP-90X is an excellent choice for digital players.', 4),
+                                                                                (6, 26, 'Portable and Sleek', 'Casio Privia PX-S7000 is lightweight yet powerful.', 4),
+                                                                                (7, 27, 'High Quality', 'Nord Grand feels just like an acoustic grand piano.', 5),
+                                                                                (1, 28, 'Versatile Stage Piano', 'Korg Grandstage is ideal for live performers.', 5),
+                                                                                (2, 29, 'Superb Upright', 'Yamaha U1 offers excellent tonal performance for its size.', 4),
+                                                                                (3, 30, 'Advanced Features', 'Roland RD-2000 is perfect for professional stage use.', 4);

@@ -1,0 +1,160 @@
+{
+  "cart": {
+    "removeAllButton": "Remove all items from cart",
+    "removeItemButton": "Remove from cart",
+    "emptyCart": "Your cart is empty"
+  },
+  "navbar": {
+    "guitars": "Guitars",
+    "drums": "Drums",
+    "pianos": "Pianos",
+    "profile": "Profile",
+    "cart": "Cart"
+  },
+  "editCategory": {
+    "title": "Edit Category",
+    "chooseCategory": "Choose Category",
+    "selectPlaceholder": "Select a category",
+    "selectExisting": "Select {{category}}",
+    "selectPlaceholderExisting": "Select an existing {{category}}",
+    "enterNewName": "Enter New Name",
+    "enterNewNamePlaceholder": "Enter the new name",
+    "editButton": "Edit"
+  },
+  "filters": {
+    "brand": "Brand",
+    "model": "Type",
+    "color": "Color"
+  },
+  "buttons": {
+    "editCategories": "Edit Categories",
+    "addGuitar": "Add a Guitar",
+    "addDrum": "Add a Drum",
+    "addPiano": "Add a Piano"
+  },
+  "search": {
+    "placeholderGuitar": "Search guitars",
+    "placeholderDrum": "Search drums",
+    "placeholderPiano": "Search pianos"
+  },
+  "labels": {
+    "limit": "Limit"
+  },
+  "categories": {
+    "brands": "Brand",
+    "colors": "Color",
+    "types": "Type",
+    "shell_materials": "Shell Material"
+  },
+  "form": {
+    "instrument_name": "Instrument Name",
+    "price": "Price",
+    "description": "Description",
+    "brand": "Brand",
+    "color": "Color",
+    "scale": "Scale",
+    "type": "Type",
+    "image": "Image",
+    "update_button": "Update",
+    "update_button_guitar": "Update Guitar",
+    "update_button_drum": "Update Drum",
+    "tomtom_number": "Tomtom Number",
+    "floor_tom_number": "Floor Tom Number",
+    "shell_material": "Shell Material",
+    "update_button_piano": "Update Piano",
+    "number_of_pedals": "Number of Pedals"
+  },
+  "opinions": {
+    "title": "Opinions",
+    "deleteReview": "Delete review",
+    "editReview": "Edit review",
+    "yourOpinion": "Your Opinion",
+    "score": "Score",
+    "cancel": "Cancel",
+    "createReview": "Create a review",
+    "titleLabel": "Title",
+    "descriptionLabel": "Description",
+    "scoreLabel": "Score",
+    "editReviewButton": "Edit Review",
+    "postReviewButton": "Post Review",
+    "otherOpinions": "Other Opinions",
+    "noReviews": "No reviews yet"
+  },
+  "instrumentForm": {
+    "instrumentName": "Instrument Name",
+    "price": "Price",
+    "description": "Description",
+    "brand": "Brand",
+    "color": "Color",
+    "scale": "Scale",
+    "type": "Type",
+    "tomtomNumber": "Number of tomtoms",
+    "floorTomNumber": "Number of floor tom toms",
+    "shellMaterial": "Shell material",
+    "image": "Image",
+    "selectOrTypeBrand": "Select or type a brand",
+    "selectOrTypeColor": "Select or type a color",
+    "selectOrTypeType": "Select or type a type",
+    "numberOfPedals": "Number of pedals",
+    "addDrum": "Add Drum",
+    "addGuitar": "Add Guitar",
+    "addPiano": "Add Piano"
+  },
+  "instruments": {
+    "interest": "Instruments you may have interest in"
+  },
+  "types": {
+    "guitars": "Guitars",
+    "drums": "Drums",
+    "pianos": "Pianos"
+  },
+  "loginForm": {
+    "login": "Login",
+    "loginLabel": "Login",
+    "passwordLabel": "Password",
+    "loginButton": "Login",
+    "orRegister": "Or register",
+    "registerButton": "Register"
+  },
+  "registerForm": {
+    "register": "Register",
+    "loginLabel": "Login",
+    "passwordLabel": "Password",
+    "nameLabel": "Name",
+    "surnameLabel": "Surname",
+    "emailLabel": "Email",
+    "registerButton": "Register",
+    "orLogin": "Or login",
+    "loginButton": "Go to Login"
+  },
+  "profile": {
+    "userInformation": "User Information",
+    "editProfile": "Edit profile details",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "name": "Name",
+    "surname": "Surname",
+    "email": "Email",
+    "phone": "Phone",
+    "saveChanges": "Save Changes",
+    "logout" : "Log out"
+  },
+  "product": {
+    "addToCart": "Add to the Cart",
+    "goToCart": "Go to cart",
+    "deleteProduct": "Delete this product",
+    "editProduct": "Edit this product",
+    "description": "Description",
+    "brand": "Brand",
+    "color": "Color",
+    "shellMaterial": "Shell material",
+    "tomtoms": "Number of tomtoms",
+    "floorTomtoms": "Number of floor tomtoms",
+    "instrumentDescription": "Description",
+    "type": "Type",
+    "scale": "Scale",
+    "pedalCount": "Number of pedals"
+  }
+
+}
+
